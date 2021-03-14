@@ -1,27 +1,9 @@
 # Monopoly
 
-A description of Monopoly (Version 1).
+Release highlights
 
-## Class diagram
-
-```mermaid
-classDiagram
-    class MonopolyPlayer{
-      +str name
-      +str piece
-      +int account_balance
-      +assign_to() None
-      +describe() None
-      +get_account_balance() str
-      +get_name() str
-      +get_piece() int
-      +is_same_player_as() bool
-      +ROLL_DIE() None
-      +set_account_balance() None
-      +set_name() None
-      +set_piece() None
-    }
-```
+- Addition of the `Account` class
+- Refactoring of `Player` class to use `Account`
 
 ## Account
 
