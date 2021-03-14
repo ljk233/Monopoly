@@ -23,6 +23,41 @@ classDiagram
     }
 ```
 
+## Account
+
+A class to model a Monopoly Account.
+
+### Constructor
+
+`__init__()`
+: Constructor for objects of class Account.
+Initialises balance to the class variable STARTING_BALANCE.
+
+### Class variable
+
+- `(int)` STARING_BALANCE
+
+### Instance variables
+
+- `(int)` balance
+
+### Instance methods
+
+`credit(an_amount: int) -> None`
+: Credits the receiver with the value an_amount.
+
+`debit(an_amount: int) -> bool`
+: Credits the receiver with the value an_amount.
+
+`describe() -> None`.
+: Prints the balance of the receiver.
+
+`get_balance() -> int`.
+: Returns the balance of the receiver.
+
+`set_balance(an_amount: int) -> None`.
+: Sets the balance of the receiver to the value of the argument an_amount.
+
 ## Player
 
 A class to model a Monopoly player.
@@ -31,13 +66,14 @@ A class to model a Monopoly player.
 
 `__init__()`
 : Constructor for objects of class Player.
-Initialises name, piece, account_balance to the default values.
+Initialises name and piece.
+Initialises and assigns a new object of type Account to account.
 
 ### Instance variables
 
-- (int) **account_balance**
-- (str) **name**
-- (str) **piece**
+- `(Account)` account_balance
+- `(str)` name
+- `(str)` piece
 
 ### Class methods
 
@@ -47,7 +83,21 @@ Prints the sum of the dice roll.
 
 ### Instance methods
 
-`assign_to(a_name : str, a_piece : str, an_amount: int) -> None`
+`account_credit(an_amount: int) -> bool`
+: Credits the receiver's account with the value an_amount.
+See `Account.credit()` for the description.
+
+`account_debit(an_amount: int) -> bool`
+: Debits the receiver's account by the value an_amount.
+See `Account.debit()` for the description.
+
+`account_transfer(self, a_player: Player, an_amount: int) -> bool`
+: If the receiver's account can be debited for the value an_amount,
+then the receiver's account is debited by an_amount, and a_player
+is credited by an_amount and return true.
+Otherwise returns false.
+
+`assign_to(a_name : str, a_piece : str) -> None`
 : Assigns a player to the receiver.
 
 `describe() -> None`.
