@@ -1,0 +1,3 @@
+# Monopoly
+
+Create global readme.
