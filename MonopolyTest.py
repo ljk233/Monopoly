@@ -6,7 +6,7 @@ from Monopoly import Player
 class Test:
 
     @staticmethod
-    def player_init(self):
+    def player_init():
         """
         Tests that a Player class initialises as expected.
         """
