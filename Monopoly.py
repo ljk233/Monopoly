@@ -1,5 +1,6 @@
 
 from __future__ import annotations
+from typing import TypeVar
 # from typing import TypeVar
 
 
@@ -43,12 +44,6 @@ class Player:
     @piece.setter
     def piece(self, a_piece: str) -> None:
         self._piece = a_piece
-
-    # ========================================================================
-    # Class methods
-    # ========================================================================
-
-    # No class methods
 
     # ========================================================================
     # Instance methods
@@ -111,3 +106,75 @@ class Player:
         self.name = a_name
         self.account_balance = an_amount
         self.piece = a_piece
+
+
+class Account:
+    """
+    """
+
+    STARTING_MONEY: int = 500  # Class variable
+
+    def __init__(self) -> None:
+        """
+        Constructor for objects of type Account.
+        Sets the value of balance to the value of Account.STARTING_MONEY.
+        """
+
+        self._balance = Account.STARTING_MONEY
+
+    # ========================================================================
+    # @Properties
+    # ========================================================================
+
+    @property
+    def balance(self) -> int:
+        """
+        Returns the value of balance of the receiver.
+        """
+
+        return self._balance
+
+    @balance.setter
+    def balance(self, an_amount: int) -> None:
+        """
+        Sets the receiver's balance to the value of an_amount.
+        """
+
+        self._balance = an_amount
+
+    # ========================================================================
+    # Instance methods
+    # ========================================================================
+
+    def __eq__(self, a: Account) -> bool:
+        """
+        @Overrides.
+        Returns true if the receiver is has the same state as
+        the argument a, otherwise false is returned
+
+        :param a (Account) An Account object
+
+        :returns bool
+        """
+
+        return self.balance == a.balance
+
+    def __repr__(self) -> str:
+        """
+        @Override.
+        Returns a succinct representation of the object as a string.
+        """
+        return ("Monopoly.Account(\"" + self.balance + ")")
+
+    def __str__(self) -> str:
+        """
+        @Override
+        Returns a verbose description of the receiver as a string.
+
+        :param None
+
+        :return str
+        """
+
+        return ("An Account with a balance of £" +
+                str(self.balance))
